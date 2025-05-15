@@ -1,13 +1,16 @@
 package net.mioyi.railway.auth
 
 import io.quarkus.test.junit.QuarkusTest
+import io.restassured.RestAssured.`when`
+import org.hamcrest.Matchers.equalTo
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
 @QuarkusTest
 class MainTest {
     @Test
     fun f() {
-        assertEquals(2, 1 + 1)
+        `when`().get("/").then()
+            .statusCode(200)
+            .body(equalTo("auth"))
     }
 }

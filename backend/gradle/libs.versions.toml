@@ -4,11 +4,13 @@ quarkus = "3.22.3"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 quarkus = { id = "io.quarkus", version.ref = "quarkus" }
 
 [libraries]
 quarkus-bom = { group = "io.quarkus", name = "quarkus-bom", version.ref = "quarkus" }
 quarkus-kotlin = { group = "io.quarkus", name = "quarkus-kotlin" }
+quarkus-rest-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest-kotlin-serialization" }
 quarkus-smallrye-jwt = { group = "io.quarkus", name = "quarkus-smallrye-jwt" }
 quarkus-smallrye-jwt-build = { group = "io.quarkus", name = "quarkus-smallrye-jwt-build" }
 quarkus-junit5 = { group = "io.quarkus", name = "quarkus-junit5" }
