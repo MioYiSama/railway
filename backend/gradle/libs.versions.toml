@@ -14,9 +14,9 @@ quarkus-rest-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest
 quarkus-smallrye-jwt = { group = "io.quarkus", name = "quarkus-smallrye-jwt" }
 quarkus-smallrye-jwt-build = { group = "io.quarkus", name = "quarkus-smallrye-jwt-build" }
 quarkus-junit5 = { group = "io.quarkus", name = "quarkus-junit5" }
-rest-assured = { group = "io.rest-assured", name = "rest-assured" }
+rest-assured-kotlin = { group = "io.rest-assured", name = "kotlin-extensions" }
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
 
 [bundles]
 quarkus-jwt = ["quarkus-smallrye-jwt", "quarkus-smallrye-jwt-build"]
-quarkus-test = ["quarkus-junit5", "rest-assured"]
+quarkus-test = ["quarkus-junit5", "rest-assured-kotlin"]
