@@ -1,6 +1,7 @@
 package net.mioyi.railway.auth
 
 import io.quarkus.test.junit.QuarkusTest
+import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
 import org.hamcrest.Matchers.equalTo
 import kotlin.test.Test
@@ -9,8 +10,11 @@ import kotlin.test.Test
 class MainTest {
     @Test
     fun f() {
-        When { get("/") }.then()
-            .statusCode(200)
-            .body(equalTo("auth"))
+        When {
+            get("/")
+        }.Then {
+            statusCode(200)
+            body(equalTo("auth"))
+        }
     }
 }
