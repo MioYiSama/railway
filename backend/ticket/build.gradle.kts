@@ -7,4 +7,7 @@ dependencies {
     implementation(enforcedPlatform(libs.quarkus.bom))
     implementation(libs.quarkus.kotlin)
     implementation(libs.quarkus.smallrye.jwt)
+    testImplementation(libs.bundles.quarkus.test)
+    testImplementation(libs.kotlin.test)
+
 }

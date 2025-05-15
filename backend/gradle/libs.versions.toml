@@ -11,6 +11,10 @@ quarkus-bom = { group = "io.quarkus", name = "quarkus-bom", version.ref = "quark
 quarkus-kotlin = { group = "io.quarkus", name = "quarkus-kotlin" }
 quarkus-smallrye-jwt = { group = "io.quarkus", name = "quarkus-smallrye-jwt" }
 quarkus-smallrye-jwt-build = { group = "io.quarkus", name = "quarkus-smallrye-jwt-build" }
+quarkus-junit5 = { group = "io.quarkus", name = "quarkus-junit5" }
+rest-assured = { group = "io.rest-assured", name = "rest-assured" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
 
 [bundles]
 quarkus-jwt = ["quarkus-smallrye-jwt", "quarkus-smallrye-jwt-build"]
+quarkus-test = ["quarkus-junit5", "rest-assured"]
