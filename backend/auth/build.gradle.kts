@@ -6,10 +6,8 @@ plugins {
 
 dependencies {
     implementation(enforcedPlatform(libs.quarkus.bom))
-    implementation(libs.quarkus.kotlin)
-    implementation(libs.quarkus.rest.kotlin.serialization)
+    implementation(libs.bundles.quarkus.kotlin.rest)
     implementation(libs.bundles.quarkus.jwt)
 
-    testImplementation(libs.bundles.quarkus.test)
-    testImplementation(libs.kotlin.test)
+    testImplementation(libs.bundles.quarkus.kotlin.rest.test)
 }

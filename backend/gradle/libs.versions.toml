@@ -9,14 +9,18 @@ quarkus = { id = "io.quarkus", version.ref = "quarkus" }
 
 [libraries]
 quarkus-bom = { group = "io.quarkus", name = "quarkus-bom", version.ref = "quarkus" }
+
 quarkus-kotlin = { group = "io.quarkus", name = "quarkus-kotlin" }
 quarkus-rest-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest-kotlin-serialization" }
-quarkus-smallrye-jwt = { group = "io.quarkus", name = "quarkus-smallrye-jwt" }
-quarkus-smallrye-jwt-build = { group = "io.quarkus", name = "quarkus-smallrye-jwt-build" }
+
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
 quarkus-junit5 = { group = "io.quarkus", name = "quarkus-junit5" }
 rest-assured-kotlin = { group = "io.rest-assured", name = "kotlin-extensions" }
-kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+
+quarkus-smallrye-jwt = { group = "io.quarkus", name = "quarkus-smallrye-jwt" }
+quarkus-smallrye-jwt-build = { group = "io.quarkus", name = "quarkus-smallrye-jwt-build" }
 
 [bundles]
+quarkus-kotlin-rest = ["quarkus-kotlin", "quarkus-rest-kotlin-serialization"]
+quarkus-kotlin-rest-test = ["kotlin-test", "quarkus-junit5", "rest-assured-kotlin"]
 quarkus-jwt = ["quarkus-smallrye-jwt", "quarkus-smallrye-jwt-build"]
-quarkus-test = ["quarkus-junit5", "rest-assured-kotlin"]
