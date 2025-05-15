@@ -16,3 +16,4 @@ Notes:
 - Gradle
 - Kotlin
 - Multi-project
+- Quarkus
