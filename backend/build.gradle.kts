@@ -1,6 +1,7 @@
 plugins {
     idea
     alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.quarkus) apply false
 }
 
 idea {
