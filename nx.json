@@ -5,7 +5,8 @@
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/**/*.config.[jt]s",
+      "!{projectRoot}/**/vitest.config.[jt]s",
+      "!{projectRoot}/**/playwright.config.[jt]s",
       "!{projectRoot}/**/*_test.go",
       "!{projectRoot}/tests/**/*",
       "!{projectRoot}/e2e/**/*"
