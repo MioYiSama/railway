@@ -71,7 +71,7 @@ services:
     image: otel/opentelemetry-collector-contrib:latest
     command: ["--config=/etc/otel/config.yaml"]
     volumes:
-      - ./docker/otel-collector/config.yaml:/etc/otel/config.yaml:ro
+      - ./otel-collector/config.yaml:/etc/otel/config.yaml:ro
     ports:
       - "4317:4317"
       - "4318:4318"
@@ -82,7 +82,7 @@ services:
   prometheus:
     image: prom/prometheus:latest
     volumes:
-      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     ports:
       - "9090:9090"
 
@@ -90,7 +90,7 @@ services:
     image: grafana/tempo:latest
     command: ["-config.file=/etc/tempo/tempo.yaml"]
     volumes:
-      - ./docker/tempo/tempo.yaml:/etc/tempo/tempo.yaml:ro
+      - ./tempo/tempo.yaml:/etc/tempo/tempo.yaml:ro
       - tempo-data:/var/tempo
     ports:
       - "3200:3200"
@@ -99,7 +99,7 @@ services:
     image: grafana/loki:latest
     command: ["-config.file=/etc/loki/loki-config.yaml"]
     volumes:
-      - ./docker/loki/loki-config.yaml:/etc/loki/loki-config.yaml:ro
+      - ./loki/loki-config.yaml:/etc/loki/loki-config.yaml:ro
       - loki-data:/loki
     ports:
       - "3100:3100"
@@ -110,7 +110,7 @@ services:
       GF_AUTH_ANONYMOUS_ENABLED: "true"
       GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
     volumes:
-      - ./docker/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
     ports:
       - "3000:3000"
     depends_on:
@@ -126,17 +126,17 @@ services:
       - "8001:81"
       - "8002:82"
     volumes:
-      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./apps/web/dist:/srv/web:ro
-      - ./apps/admin/dist:/srv/admin:ro
-      - ./apps/landing/dist:/srv/landing:ro
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ../apps/web/dist:/srv/web:ro
+      - ../apps/admin/dist:/srv/admin:ro
+      - ../apps/landing/dist:/srv/landing:ro
     depends_on:
       - api-gateway
 
   # ============ 微服务 ============
   api-gateway:
     build:
-      context: .
+      context: ..
       dockerfile: services/api-gateway/Dockerfile
     environment:
       OTLP_ENDPOINT: otel-collector:4317
@@ -148,35 +148,35 @@ services:
 
   train-schedule:
     <<: *go-service
-    build: { context: ., dockerfile: services/train-schedule/Dockerfile }
+    build: { context: .., dockerfile: services/train-schedule/Dockerfile }
 
   ticket-query:
     <<: *go-service
-    build: { context: ., dockerfile: services/ticket-query/Dockerfile }
+    build: { context: .., dockerfile: services/ticket-query/Dockerfile }
 
   inventory-seat:
     <<: *go-service
-    build: { context: ., dockerfile: services/inventory-seat/Dockerfile }
+    build: { context: .., dockerfile: services/inventory-seat/Dockerfile }
 
   order:
     <<: *go-service
-    build: { context: ., dockerfile: services/order/Dockerfile }
+    build: { context: .., dockerfile: services/order/Dockerfile }
 
   ticketing:
     <<: *go-service
-    build: { context: ., dockerfile: services/ticketing/Dockerfile }
+    build: { context: .., dockerfile: services/ticketing/Dockerfile }
 
   user:
     <<: *go-service
-    build: { context: ., dockerfile: services/user/Dockerfile }
+    build: { context: .., dockerfile: services/user/Dockerfile }
 
   payment:
     <<: *go-service
-    build: { context: ., dockerfile: services/payment/Dockerfile }
+    build: { context: .., dockerfile: services/payment/Dockerfile }
 
   notification:
     <<: *go-service
-    build: { context: ., dockerfile: services/notification/Dockerfile }
+    build: { context: .., dockerfile: services/notification/Dockerfile }
 
 volumes:
   postgres-data:
