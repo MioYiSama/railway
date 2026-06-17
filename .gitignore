@@ -1,0 +1,42 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# go
+bin/
+*.test
+*.out
+
+# nx
+.nx/cache
+.nx/workspace-data
+
+# taro / rn
+.taro/
+.expo/
+*.keystore
+
+# generated protobuf (regenerated via buf)
+libs/gen/
+
+# test / coverage
+coverage/
+playwright-report/
+test-results/
+
+# env
+.env
+.env.local
+*.local
+
+# editor / os
+.DS_Store
+.idea/
+.vscode/
+tmp/

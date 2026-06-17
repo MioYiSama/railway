@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ticketing.v1;
+
+// TicketingService 负责出票、改签、退票、电子客票与乘车码生成（骨架）。
+service TicketingService {
+  rpc IssueTicket(IssueTicketRequest) returns (IssueTicketResponse);
+}
+
+message IssueTicketRequest {
+  string order_id = 1;
+}
+
+message IssueTicketResponse {
+  string ticket_id = 1;
+  string qr_code = 2;
+}

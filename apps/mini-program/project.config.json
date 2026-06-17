@@ -1,0 +1,11 @@
+{
+  "miniprogramRoot": "dist/",
+  "projectname": "railway-mini-program",
+  "description": "Railway 小程序（学习用途）",
+  "appid": "touristappid",
+  "setting": {
+    "es6": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

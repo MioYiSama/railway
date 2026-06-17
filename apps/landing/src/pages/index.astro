@@ -1,0 +1,21 @@
+---
+import { site, appLink } from '../lib/site';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{site.title}</title>
+  </head>
+  <body>
+    <main>
+      <h1>{site.title}</h1>
+      <p>仅作为学习用途的 12306 演示项目。</p>
+      <p>APP_URL: {site.appUrl}</p>
+      <p>BACKEND_URL: {site.backendUrl}</p>
+      <a href={appLink('/')}>进入购票</a>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package order.v1;
+
+// OrderService 负责订单生命周期流转（骨架）。
+service OrderService {
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+message CreateOrderRequest {
+  string user_id = 1;
+  string train_no = 2;
+  string seat_type = 3;
+}
+
+message CreateOrderResponse {
+  string order_id = 1;
+  string status = 2;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package user.v1;
+
+// UserService 负责账号管理、实名认证、常用联系人管理（骨架）。
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  string id = 1;
+  string name = 2;
+  bool verified = 3;
+}

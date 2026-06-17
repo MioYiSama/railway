@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package ticketquery.v1;
+
+// TicketQueryService 负责余票查询、票价查询（骨架）。
+service TicketQueryService {
+  rpc QueryTickets(QueryTicketsRequest) returns (QueryTicketsResponse);
+}
+
+message QueryTicketsRequest {
+  string from_station = 1;
+  string to_station = 2;
+  string date = 3;
+}
+
+message Ticket {
+  string train_no = 1;
+  string seat_type = 2;
+  int32 remaining = 3;
+  int32 price_cents = 4;
+}
+
+message QueryTicketsResponse {
+  repeated Ticket tickets = 1;
+}

@@ -1,0 +1,11 @@
+**/node_modules
+**/dist
+**/.nx
+**/.taro
+**/coverage
+**/playwright-report
+**/test-results
+.git
+.github
+docs
+*.md

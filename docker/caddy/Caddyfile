@@ -1,0 +1,32 @@
+# 前端为静态 SPA，构建产物挂载进 Caddy；/api 反代到 api-gateway。
+:80 {
+	# 主 Web 应用
+	root * /srv/web
+	encode gzip
+
+	# API 反向代理到网关
+	handle_path /api/* {
+		reverse_proxy api-gateway:8080
+	}
+
+	# SPA 回退路由
+	handle {
+		try_files {path} /index.html
+		file_server
+	}
+}
+
+# 管理后台
+:81 {
+	root * /srv/admin
+	encode gzip
+	try_files {path} /index.html
+	file_server
+}
+
+# 官网 / 落地页
+:82 {
+	root * /srv/landing
+	encode gzip
+	file_server
+}

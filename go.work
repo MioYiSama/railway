@@ -1,0 +1,14 @@
+go 1.26
+
+use (
+	./libs
+	./services/api-gateway
+	./services/inventory-seat
+	./services/notification
+	./services/order
+	./services/payment
+	./services/ticket-query
+	./services/ticketing
+	./services/train-schedule
+	./services/user
+)

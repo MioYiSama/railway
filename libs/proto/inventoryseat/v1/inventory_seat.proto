@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package inventoryseat.v1;
+
+// InventorySeatService 负责座位分配、锁定、释放与库存扣减（骨架）。
+service InventorySeatService {
+  rpc LockSeat(LockSeatRequest) returns (LockSeatResponse);
+}
+
+message LockSeatRequest {
+  string train_no = 1;
+  string seat_type = 2;
+  int32 quantity = 3;
+}
+
+message LockSeatResponse {
+  string lock_id = 1;
+  bool success = 2;
+}

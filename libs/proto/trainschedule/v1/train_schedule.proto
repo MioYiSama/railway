@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package trainschedule.v1;
+
+// TrainScheduleService 负责铁路网、车站、列车编组与时刻表（骨架）。
+service TrainScheduleService {
+  rpc GetTrainSchedule(GetTrainScheduleRequest) returns (GetTrainScheduleResponse);
+}
+
+message GetTrainScheduleRequest {
+  string train_no = 1;
+}
+
+message GetTrainScheduleResponse {
+  string train_no = 1;
+  string from_station = 2;
+  string to_station = 3;
+  string depart_time = 4;
+}
