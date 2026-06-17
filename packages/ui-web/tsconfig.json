@@ -4,7 +4,6 @@
     "rootDir": "src",
     "outDir": "dist",
     "noEmit": true,
-    "paths": {},
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "include": ["src", "vitest.setup.ts"]

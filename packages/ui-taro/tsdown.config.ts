@@ -4,6 +4,7 @@ export default defineConfig({
   entry: ['src/index.ts'],
   format: ['esm'],
   dts: { tsgo: true },
+  tsconfig: './tsconfig.build.json',
   clean: true,
   deps: { neverBundle: ['react', 'react/jsx-runtime', '@tarojs/components'] },
 });
