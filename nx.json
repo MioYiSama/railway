@@ -18,6 +18,12 @@
       "inputs": ["production", "^production"],
       "cache": true
     },
+    "package": {
+      "dependsOn": ["libs-proto:codegen", "^build"],
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/{projectName}"],
+      "cache": true
+    },
     "test": {
       "inputs": ["default", "^production"],
       "cache": true

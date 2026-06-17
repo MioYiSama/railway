@@ -5,19 +5,38 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "options": { "command": "go build ./...", "cwd": "services/api-gateway" }
+      "options": {
+        "command": "go build ./...",
+        "cwd": "services/api-gateway"
+      }
     },
     "test": {
       "executor": "nx:run-commands",
-      "options": { "command": "go test ./...", "cwd": "services/api-gateway" }
+      "options": {
+        "command": "go test ./...",
+        "cwd": "services/api-gateway"
+      }
     },
     "serve": {
       "executor": "nx:run-commands",
-      "options": { "command": "go run ./cmd", "cwd": "services/api-gateway" }
+      "options": {
+        "command": "go run ./cmd",
+        "cwd": "services/api-gateway"
+      }
     },
     "lint": {
       "executor": "nx:run-commands",
-      "options": { "command": "golangci-lint run --allow-parallel-runners", "cwd": "services/api-gateway" }
+      "options": {
+        "command": "golangci-lint run --allow-parallel-runners",
+        "cwd": "services/api-gateway"
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "go build -o ../../dist/api-gateway ./cmd",
+        "cwd": "services/api-gateway"
+      }
     }
   }
 }

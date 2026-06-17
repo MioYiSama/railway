@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A new push to the same branch/PR cancels the previous run.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # nx affected needs history to diff against the base
+      - uses: ./.github/actions/setup
+      # Resolves the base/head SHAs to diff: previous commit on push,
+      # PR base on pull_request.
+      - uses: nrwl/nx-set-shas@v4
+      - run: pnpm exec nx affected -t lint test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - uses: nrwl/nx-set-shas@v4
+
+      # codegen runs automatically as a dependsOn of build/package — no manual
+      # step. The Go binaries come from the `package` target (cached, with
+      # declared outputs), not a hand-rolled loop.
+      - run: pnpm exec nx affected -t build package
+
+      - name: Upload frontend artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: apps/*/dist
+          if-no-files-found: warn
+
+      - name: Upload service binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: service-binaries
+          path: dist
+          if-no-files-found: warn

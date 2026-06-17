@@ -5,22 +5,47 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "options": { "command": "go build ./...", "cwd": "services/order" },
-      "dependsOn": ["libs-proto:codegen"]
+      "options": {
+        "command": "go build ./...",
+        "cwd": "services/order"
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "test": {
       "executor": "nx:run-commands",
-      "options": { "command": "go test ./...", "cwd": "services/order" },
-      "dependsOn": ["libs-proto:codegen"]
+      "options": {
+        "command": "go test ./...",
+        "cwd": "services/order"
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "serve": {
       "executor": "nx:run-commands",
-      "options": { "command": "go run ./cmd", "cwd": "services/order" },
-      "dependsOn": ["libs-proto:codegen"]
+      "options": {
+        "command": "go run ./cmd",
+        "cwd": "services/order"
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "lint": {
       "executor": "nx:run-commands",
-      "options": { "command": "golangci-lint run --allow-parallel-runners", "cwd": "services/order" }
+      "options": {
+        "command": "golangci-lint run --allow-parallel-runners",
+        "cwd": "services/order"
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "go build -o ../../dist/order ./cmd",
+        "cwd": "services/order"
+      }
     }
   }
 }
