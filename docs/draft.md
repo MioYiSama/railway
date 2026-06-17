@@ -16,7 +16,7 @@
 ## 后端
 
 - go 1.26
-- fiber
+- fiber v3
 - sqlx
 - gRPC
 - Kafka

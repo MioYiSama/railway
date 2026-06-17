@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/gofiber/fiber/v3"
 	"github.com/mioyisama/railway/libs/config"
 	"github.com/mioyisama/railway/libs/httpserver"
 	"github.com/mioyisama/railway/libs/observability"
@@ -29,7 +30,7 @@ func main() {
 
 	go func() {
 		log.Printf("api-gateway HTTP server listening on %s", cfg.HTTPAddr)
-		if err := app.Listen(cfg.HTTPAddr); err != nil {
+		if err := app.Listen(cfg.HTTPAddr, fiber.ListenConfig{DisableStartupMessage: true}); err != nil {
 			log.Fatalf("listen: %v", err)
 		}
 	}()
