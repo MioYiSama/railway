@@ -7,6 +7,7 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/react-compiler": "error",
     "typescript/triple-slash-reference": "off",
     "import/no-unassigned-import": "off"
   },

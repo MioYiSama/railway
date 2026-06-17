@@ -1,11 +1,11 @@
 import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react()],
   resolve: {
+    tsconfigPaths: true,
     alias: {
       // react-native 需要原生运行时，测试中替换为 DOM stub。
       'react-native': resolve(__dirname, 'test/react-native.stub.tsx'),

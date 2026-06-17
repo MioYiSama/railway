@@ -12,10 +12,10 @@ out/
 bin/
 *.test
 *.out
+.cache/
 
 # nx
-.nx/cache
-.nx/workspace-data
+.nx
 
 # taro / rn
 .taro/

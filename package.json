@@ -10,7 +10,7 @@
   "scripts": {
     "build": "nx run-many -t build",
     "test": "nx run-many -t test",
-    "lint": "nx run-many -t lint",
+    "lint": "GOCACHE=\"$PWD/.cache/go-build\" GOLANGCI_LINT_CACHE=\"$PWD/.cache/golangci-lint\" nx run-many -t lint",
     "codegen": "nx run libs-proto:codegen",
     "fmt": "oxfmt .",
     "fmt:check": "oxfmt --check ."
@@ -19,9 +19,11 @@
     "@nx/js": "23.0.0",
     "@nx/vite": "23.0.0",
     "@playwright/test": "1.61.0",
+    "@rolldown/plugin-babel": "^0.2.3",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@vitejs/plugin-react": "6.0.2",
+    "babel-plugin-react-compiler": "^1.0.0",
     "jsdom": "29.1.1",
     "nx": "23.0.0",
     "oxfmt": "0.55.0",
@@ -30,7 +32,6 @@
     "tsdown": "0.22.3",
     "typescript": "6.0.3",
     "vite": "8.0.16",
-    "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.9"
   }
 }
