@@ -4,7 +4,7 @@ package server
 import (
 	"context"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/order/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/order/v1"
 )
 
 // Server 实现 pb.OrderServiceServer。

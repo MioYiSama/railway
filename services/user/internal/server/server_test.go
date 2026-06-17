@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/user/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/user/v1"
 )
 
 func TestGetUser(t *testing.T) {

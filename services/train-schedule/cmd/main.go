@@ -11,7 +11,7 @@ import (
 	"github.com/mioyisama/railway/libs/config"
 	"github.com/mioyisama/railway/libs/grpcserver"
 	"github.com/mioyisama/railway/libs/observability"
-	pb "github.com/mioyisama/railway/libs/gen/go/trainschedule/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/trainschedule/v1"
 	"github.com/mioyisama/railway/services/train-schedule/internal/server"
 )
 

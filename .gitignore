@@ -24,6 +24,7 @@ bin/
 
 # generated protobuf (regenerated via buf)
 libs/gen/
+libs/proto/gen/
 
 # test / coverage
 coverage/

@@ -3,11 +3,17 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/mioyisama/railway/libs/gen/go
+      value: github.com/mioyisama/railway/libs/proto/gen/go
 plugins:
-  - remote: buf.build/protocolbuffers/go
-    out: ../gen/go
+  - local:
+      - go
+      - run
+      - google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11
+    out: gen/go
     opt: paths=source_relative
-  - remote: buf.build/grpc/go
-    out: ../gen/go
+  - local:
+      - go
+      - run
+      - google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.6.2
+    out: gen/go
     opt: paths=source_relative

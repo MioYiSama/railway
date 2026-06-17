@@ -2,10 +2,7 @@ module github.com/mioyisama/railway/services/api-gateway
 
 go 1.26
 
-require (
-	github.com/gofiber/fiber/v2 v2.52.13
-	github.com/mioyisama/railway/libs v0.0.0
-)
+require github.com/gofiber/fiber/v2 v2.52.13
 
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
@@ -19,6 +16,9 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.16 // indirect
+	github.com/mioyisama/railway/libs/config v0.0.0
+	github.com/mioyisama/railway/libs/httpserver v0.0.0
+	github.com/mioyisama/railway/libs/observability v0.0.0
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
@@ -40,4 +40,8 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 )
 
-replace github.com/mioyisama/railway/libs => ../../libs
+replace github.com/mioyisama/railway/libs/config => ../../libs/config
+
+replace github.com/mioyisama/railway/libs/httpserver => ../../libs/httpserver
+
+replace github.com/mioyisama/railway/libs/observability => ../../libs/observability

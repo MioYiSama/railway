@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/payment/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/payment/v1"
 )
 
 func TestCreatePayment(t *testing.T) {

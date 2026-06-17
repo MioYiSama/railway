@@ -1,7 +1,11 @@
 go 1.26
 
 use (
-	./libs
+	./libs/config
+	./libs/grpcserver
+	./libs/httpserver
+	./libs/observability
+	./libs/proto
 	./services/api-gateway
 	./services/inventory-seat
 	./services/notification

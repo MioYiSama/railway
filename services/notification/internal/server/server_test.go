@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/notification/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/notification/v1"
 )
 
 func TestSendNotification(t *testing.T) {

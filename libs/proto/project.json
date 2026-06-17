@@ -3,13 +3,23 @@
   "name": "libs-proto",
   "projectType": "library",
   "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": { "command": "go build ./...", "cwd": "libs/proto" },
+      "dependsOn": ["libs-proto:codegen"]
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": { "command": "go test ./...", "cwd": "libs/proto" },
+      "dependsOn": ["libs-proto:codegen"]
+    },
     "codegen": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "buf generate",
+        "command": "GOCACHE=\"$PWD/../../.cache/go-build\" GOMODCACHE=\"$PWD/../../.cache/go-mod\" buf generate",
         "cwd": "libs/proto"
       },
-      "outputs": ["{workspaceRoot}/libs/gen"]
+      "outputs": ["{workspaceRoot}/libs/proto/gen"]
     },
     "lint": {
       "executor": "nx:run-commands",

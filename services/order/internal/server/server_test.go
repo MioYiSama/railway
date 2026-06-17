@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/order/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/order/v1"
 )
 
 func TestCreateOrder(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/ticketing/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/ticketing/v1"
 )
 
 func TestIssueTicket(t *testing.T) {

@@ -2,7 +2,12 @@ module github.com/mioyisama/railway/services/inventory-seat
 
 go 1.26
 
-require github.com/mioyisama/railway/libs v0.0.0
+require (
+	github.com/mioyisama/railway/libs/config v0.0.0
+	github.com/mioyisama/railway/libs/grpcserver v0.0.0
+	github.com/mioyisama/railway/libs/observability v0.0.0
+	github.com/mioyisama/railway/libs/proto v0.0.0
+)
 
 require (
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
@@ -28,4 +33,10 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 )
 
-replace github.com/mioyisama/railway/libs => ../../libs
+replace github.com/mioyisama/railway/libs/config => ../../libs/config
+
+replace github.com/mioyisama/railway/libs/grpcserver => ../../libs/grpcserver
+
+replace github.com/mioyisama/railway/libs/observability => ../../libs/observability
+
+replace github.com/mioyisama/railway/libs/proto => ../../libs/proto

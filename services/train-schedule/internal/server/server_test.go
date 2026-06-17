@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pb "github.com/mioyisama/railway/libs/gen/go/trainschedule/v1"
+	pb "github.com/mioyisama/railway/libs/proto/gen/go/trainschedule/v1"
 )
 
 func TestGetTrainSchedule(t *testing.T) {
