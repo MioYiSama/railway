@@ -8,28 +8,40 @@
       "options": {
         "command": "go build ./...",
         "cwd": "services/api-gateway"
-      }
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "test": {
       "executor": "nx:run-commands",
       "options": {
         "command": "go test ./...",
         "cwd": "services/api-gateway"
-      }
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "serve": {
       "executor": "nx:run-commands",
       "options": {
         "command": "go run ./cmd",
         "cwd": "services/api-gateway"
-      }
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "lint": {
       "executor": "nx:run-commands",
       "options": {
         "command": "golangci-lint run --allow-parallel-runners",
         "cwd": "services/api-gateway"
-      }
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "package": {
       "executor": "nx:run-commands",

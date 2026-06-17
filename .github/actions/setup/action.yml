@@ -16,7 +16,17 @@ runs:
         # root, so point the cache key at every module's checksum file.
         cache-dependency-path: "**/go.sum"
 
-    - uses: bufbuild/buf-setup-action@v1
+    # buf-setup-action is still pinned to the deprecated Node 20 runtime, so we
+    # install the release binary directly (like golangci-lint below). A direct
+    # release download isn't rate-limited the way the API is, so no token needed.
+    - name: Install buf
+      shell: bash
+      env:
+        BUF_VERSION: 1.71.0
+      run: |
+        curl -sSfL "https://github.com/bufbuild/buf/releases/download/v${BUF_VERSION}/buf-$(uname -s)-$(uname -m)" \
+          -o "$(go env GOPATH)/bin/buf"
+        chmod +x "$(go env GOPATH)/bin/buf"
 
     - name: Install golangci-lint
       shell: bash

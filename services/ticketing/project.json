@@ -38,7 +38,10 @@
       "options": {
         "command": "golangci-lint run --allow-parallel-runners",
         "cwd": "services/ticketing"
-      }
+      },
+      "dependsOn": [
+        "libs-proto:codegen"
+      ]
     },
     "package": {
       "executor": "nx:run-commands",
